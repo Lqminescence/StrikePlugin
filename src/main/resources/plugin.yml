@@ -1,0 +1,13 @@
+name: Strike
+version: 1.3
+main: me.luminescence.strike.Main
+api-version: 1.16
+authors: [Luminescence]
+description: This plugin makes lightning fun!
+commands:
+  strike:
+    description: This command will strike a player with lightning!
+    permission: strike.strike
+  lstick:
+    description: This command gives you a lightning stick to strike everwhere!
+    permission: strike.strike
