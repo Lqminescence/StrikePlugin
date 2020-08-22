@@ -14,8 +14,6 @@ public class StrikeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        Main.getPlugin(Main.class).getConfig().getString("prefix");
-
         if (cmd.getName().equalsIgnoreCase("strike")) {
             if (sender instanceof Player) {
 

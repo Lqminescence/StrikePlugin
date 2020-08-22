@@ -31,7 +31,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
         if (player.getInventory().getItemInMainHand().hasItemMeta()) {
             if (Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Lightning Stick")) {
 
-                while (set < 25) {
+                while (set < 40) {
 
                     int xmin = -40;
                     int xmax = 40;
@@ -58,7 +58,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                     player.getWorld().strikeLightningEffect(location1);
                     player.getWorld().strikeLightningEffect(location1);
 
-                    Thread.sleep(400);
+                    Thread.sleep(50);
 
                     set++;
                 }
@@ -75,9 +75,6 @@ public class LightningStickCommand implements CommandExecutor, Listener {
         ItemMeta meta = stick.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.YELLOW  + "Lightning Stick");
-
-
-
         stick.setItemMeta(meta);
 
         if (cmd.getName().equalsIgnoreCase("lstick")) {
@@ -85,7 +82,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                 if (args.length == 0) {
 
                     ((Player) sender).getInventory().addItem(stick);
-                    sender.sendMessage(ChatColor.DARK_AQUA + "You have received the Lightning Stick!");
+                    sender.sendMessage(CC.translate("&8&l[&6&lS&8&l]" + ChatColor.WHITE + "You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + "Lightning Stick!"));
 
                     return true;
 
@@ -103,11 +100,24 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                     } else {
 
                         sender.sendMessage(ChatColor.RED + args[0] + " is not online right now!");
+
                     }
 
                 }
             } else {
-                System.out.println(ChatColor.RED + "This command is for players only!");
+
+                if (args.length == 0) {
+
+                    System.out.println("[Strike] Please choose a player to give the stick to!");
+
+                } else {
+
+                    Player consoleTarget = Bukkit.getPlayerExact(args[0]);
+
+                    assert consoleTarget != null;
+                    (consoleTarget).getInventory().addItem(stick);
+
+                }
             }
 
         }
