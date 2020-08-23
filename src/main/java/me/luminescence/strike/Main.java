@@ -10,11 +10,11 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        Bukkit.getPluginManager().registerEvents(new LightningStickCommand(), this);
+        Bukkit.getPluginManager().registerEvents(new LightningStickCheck(), this);
 
         System.out.println("[Strike] Strike has loaded successfully!");
 
-        getConfig().options().copyDefaults();
+        this.getConfig().options().copyDefaults();
         saveDefaultConfig();
 
         //Commands:
