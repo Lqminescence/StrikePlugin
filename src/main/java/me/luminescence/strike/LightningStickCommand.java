@@ -58,7 +58,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                     player.getWorld().strikeLightningEffect(location1);
                     player.getWorld().strikeLightningEffect(location1);
 
-                    Thread.sleep(50);
+                    Thread.sleep(5);
 
                     set++;
                 }
@@ -82,7 +82,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                 if (args.length == 0) {
 
                     ((Player) sender).getInventory().addItem(stick);
-                    sender.sendMessage(CC.translate("&8&l[&6&lS&8&l]" + ChatColor.WHITE + "You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + "Lightning Stick!"));
+                    sender.sendMessage(CC.translate("&8&l[&6&lS&8&l]" + ChatColor.WHITE + "You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + " Lightning Stick!"));
 
                     return true;
 

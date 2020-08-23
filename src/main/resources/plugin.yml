@@ -11,3 +11,6 @@ commands:
   lstick:
     description: This command gives you a lightning stick to strike everwhere!
     permission: strike.strike
+  lball:
+    description: This command gives you snowballs that strike Lightning when you throw them!
+    permission: strike.strike

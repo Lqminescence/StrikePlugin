@@ -21,7 +21,6 @@ public class Main extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("strike")).setExecutor(new StrikeCommand());
         Objects.requireNonNull(getCommand("lstick")).setExecutor(new LightningStickCommand());
-
     }
 
 }
