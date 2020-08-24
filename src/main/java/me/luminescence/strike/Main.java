@@ -14,13 +14,15 @@ public class Main extends JavaPlugin {
 
         System.out.println("[Strike] Strike has loaded successfully!");
 
-        this.getConfig().options().copyDefaults();
+        getConfig().options().copyDefaults();
         saveDefaultConfig();
 
         //Commands:
 
         Objects.requireNonNull(getCommand("strike")).setExecutor(new StrikeCommand());
         Objects.requireNonNull(getCommand("lstick")).setExecutor(new LightningStickCommand());
+        Objects.requireNonNull(getCommand("reloadconfig")).setExecutor(new ReloadStrike());
+        Objects.requireNonNull(getCommand("strikethere")).setExecutor(new StrikeThereCommand());
     }
 
 }

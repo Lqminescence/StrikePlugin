@@ -1,0 +1,45 @@
+###########################
+#------Strike Config------#
+###########################
+
+###############
+##--General--##
+###############
+
+prefix: '&8&l[&6&lStrike&8&l]'
+
+######################
+##--Strike Command--##
+######################
+
+# - Sets whether or not the lightning will hurt the player (default = false) - #
+# ----- true = Player will be hurt | false = player will not take damage ----- #
+
+real-lightning: 'false'
+
+######################
+##--LightningStick--##
+######################
+
+# - This is the amount of lightning strikes you want  -  #
+# - on interaction with Lightning Stick (Default - 40) - #
+
+Amount-of-Strikes: 40
+
+# ----- Sets whether or not the lightning from lightning stick will hurt the player ------ #
+# - true = Player will be hurt | false = player will not take damage | (default = false) - #
+
+real-lightning-stick: 'false'
+
+###########################
+##--StrikeThereCommand Command--##
+###########################
+
+# - Sets whether or not the lightning will hurt the player (default = false) - #
+# ----- true = Player will be hurt | false = player will not take damage ----- #
+
+real-strikethere-lightning: 'false'
+
+
+
+

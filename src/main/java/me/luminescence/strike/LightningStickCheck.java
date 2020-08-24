@@ -1,5 +1,6 @@
 package me.luminescence.strike;
 
+import me.luminescence.strike.utils.Config;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -19,10 +20,12 @@ public class LightningStickCheck implements Listener {
 
         int set = 0;
 
+        Thread.sleep(5);
+
         if (player.getInventory().getItemInMainHand().hasItemMeta()) {
             if (Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Lightning Stick")) {
 
-                while (set < 40) {
+                while (set < Config.Integer("Amount-of-Strikes")) {
 
                     int xmin = -40;
                     int xmax = 40;
@@ -46,10 +49,21 @@ public class LightningStickCheck implements Listener {
 
                     Location location1 = new Location(player.getWorld(), numx2, 60, numz2);
 
-                    player.getWorld().strikeLightningEffect(location1);
-                    player.getWorld().strikeLightningEffect(location1);
+                    if (Config.String("real-lightning-stick").equalsIgnoreCase("true")) {
 
-                    Thread.sleep(5);
+                        player.getWorld().strikeLightning(location1);
+                        player.getWorld().strikeLightning(location1);
+
+                    } else if (Config.String("real-lightning-stick").equalsIgnoreCase("false")) {
+
+                        player.getWorld().strikeLightningEffect(location1);
+                        player.getWorld().strikeLightningEffect(location1);
+
+                    } else {
+
+                        System.out.println("[Strike] Config File Error");
+
+                    }
 
                     set++;
                 }

@@ -2,6 +2,7 @@ package me.luminescence.strike;
 
 
 import me.luminescence.strike.utils.CC;
+import me.luminescence.strike.utils.Config;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,6 +19,8 @@ public class LightningStickCommand implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
+        String prefix = Config.String("prefix");
+
         ItemStack stick = new ItemStack(Material.STICK);
         ItemMeta meta = stick.getItemMeta();
         assert meta != null;
@@ -29,7 +32,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
                 if (args.length == 0) {
 
                     ((Player) sender).getInventory().addItem(stick);
-                    sender.sendMessage(CC.translate("&8&l[&6&lS&8&l]" + ChatColor.WHITE + " You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + " Lightning Stick&r&f!"));
+                    sender.sendMessage(CC.translate(prefix + ChatColor.WHITE + " You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + " Lightning Stick&r&f!"));
 
                     return true;
 
@@ -41,8 +44,8 @@ public class LightningStickCommand implements CommandExecutor, Listener {
 
                         (target).getInventory().addItem(stick);
 
-                        sender.sendMessage(CC.translate("&8&l[&6&lS&8&l]&r&f You have given &6&l" + target.getName() + "&r&f a &6&lLightning Stick"));
-                        target.sendMessage(CC.translate("&8&l[&6&lS&8&l]&6&l " + sender.getName() + "&r&f has given you a &6&lLightning Stick"));
+                        sender.sendMessage(CC.translate(prefix + "&r&f You have given &6&l" + target.getName() + "&r&f a &6&lLightning Stick"));
+                        target.sendMessage(CC.translate(prefix + "&6&l " + sender.getName() + "&r&f has given you a &6&lLightning Stick"));
 
                     } else {
 
