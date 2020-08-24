@@ -23,7 +23,7 @@ public class LightningStickCheck implements Listener {
         Thread.sleep(5);
 
         if (player.getInventory().getItemInMainHand().hasItemMeta()) {
-            if (Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Lightning Stick")) {
+            if (Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "Lightning Stick")) {
 
                 while (set < Config.Integer("Amount-of-Strikes")) {
 

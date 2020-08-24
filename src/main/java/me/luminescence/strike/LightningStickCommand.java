@@ -14,6 +14,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LightningStickCommand implements CommandExecutor, Listener {
 
     @Override
@@ -24,7 +27,9 @@ public class LightningStickCommand implements CommandExecutor, Listener {
         ItemStack stick = new ItemStack(Material.STICK);
         ItemMeta meta = stick.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.YELLOW  + "Lightning Stick");
+        meta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Lightning Stick");
+        List<String> lore = Arrays.asList(" ", ChatColor.YELLOW + "Zap!", ChatColor.WHITE + "The LightningStick creates endless fun,", ChatColor.WHITE + " and sometimes painful experiences!");
+        meta.setLore(lore);
         stick.setItemMeta(meta);
 
         if (cmd.getName().equalsIgnoreCase("lstick")) {
