@@ -31,14 +31,16 @@ Amount-of-Strikes: 40
 
 real-lightning-stick: 'false'
 
-###########################
+##################################
 ##--StrikeThereCommand Command--##
-###########################
+##################################
 
 # - Sets whether or not the lightning will hurt the player (default = false) - #
 # ----- true = Player will be hurt | false = player will not take damage ----- #
 
 real-strikethere-lightning: 'false'
+
+
 
 
 

@@ -28,7 +28,8 @@ public class LightningStickCommand implements CommandExecutor, Listener {
         ItemMeta meta = stick.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Lightning Stick");
-        List<String> lore = Arrays.asList(" ", ChatColor.YELLOW + "Zap!", ChatColor.WHITE + "The LightningStick creates endless fun,", ChatColor.WHITE + " and sometimes painful experiences!");
+        List<String> lore = Arrays.asList(" ", ChatColor.YELLOW + "Zap-Zap!", "", ChatColor.WHITE + "The LightningStick creates endless fun!", "", ChatColor.YELLOW + "Right-Click " + ChatColor.WHITE + "- to strike Lightning everywhere!",
+        ChatColor.YELLOW + "Left-Click " + ChatColor.WHITE + "- to strike where you are looking!");
         meta.setLore(lore);
         stick.setItemMeta(meta);
 

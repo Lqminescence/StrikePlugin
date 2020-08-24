@@ -3,17 +3,22 @@ package me.luminescence.strike;
 import me.luminescence.strike.utils.Config;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class LightningStickCheck implements Listener {
 
     @EventHandler
     public void onLightningStickInteract (PlayerInteractEvent e) throws InterruptedException {
+
+        if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
         Player player = e.getPlayer();
         player.getLocation();
@@ -66,10 +71,30 @@ public class LightningStickCheck implements Listener {
                     }
 
                     set++;
+                    }
+
                 }
 
             }
 
+        } else if (e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
+
+            Player player = e.getPlayer();
+            player.getLocation();
+
+            if (Objects.requireNonNull(player.getInventory().getItemInMainHand().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "" + ChatColor.BOLD + "Lightning Stick")) {
+
+                if (Config.String("real-lightning-stick").equals("false")) {
+
+                    player.getWorld().strikeLightningEffect(player.getTargetBlock((Set<Material>) null, 200).getLocation());
+
+                } else if (Config.String("real-lightning-stick").equals("true")) {
+
+                    player.getWorld().strikeLightning(player.getTargetBlock((Set<Material>) null, 200).getLocation());
+
+                }
+
+            }
         }
 
     }
