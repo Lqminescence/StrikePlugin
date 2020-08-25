@@ -35,10 +35,14 @@ public class LightningStickCommand implements CommandExecutor, Listener {
 
         if (cmd.getName().equalsIgnoreCase("lstick")) {
             if (sender instanceof Player) {
+
+                String lstickmessage = Config.String("receiveMessage").replace("%prefix%", prefix);
+                    lstickmessage = CC.translate(lstickmessage);
+
                 if (args.length == 0) {
 
                     ((Player) sender).getInventory().addItem(stick);
-                    sender.sendMessage(CC.translate(prefix + ChatColor.WHITE + " You have received the" + ChatColor.GOLD + "" + ChatColor.BOLD + " Lightning Stick&r&f!"));
+                    sender.sendMessage(lstickmessage);
 
                     return true;
 
@@ -50,8 +54,7 @@ public class LightningStickCommand implements CommandExecutor, Listener {
 
                         (target).getInventory().addItem(stick);
 
-                        sender.sendMessage(CC.translate(prefix + "&r&f You have given &6&l" + target.getName() + "&r&f a &6&lLightning Stick"));
-                        target.sendMessage(CC.translate(prefix + "&6&l " + sender.getName() + "&r&f has given you a &6&lLightning Stick"));
+                        target.sendMessage(lstickmessage);
 
                     } else {
 

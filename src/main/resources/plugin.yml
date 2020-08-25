@@ -21,8 +21,5 @@ commands:
     description: Strikes where you are aiming!
     permission: strike.strike
     permission-message: You cannot do this!
-  strikeall:
-    description: Strikes all players online!
-    permission: strike.strike
-    permission-message: You cannot do this!
+
 

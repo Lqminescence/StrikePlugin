@@ -26,6 +26,9 @@ public class StrikeCommand implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("strike")) {
             if (sender instanceof Player) {
 
+                String sendermessageself = Config.String("setCustomStruckYourselfMessage").replace("%prefix%", prefix);
+                    sendermessageself = CC.translate(sendermessageself);
+
                     Player player = (Player) sender;
 
                 if (sender.hasPermission("strike.strike")) {
@@ -35,12 +38,18 @@ public class StrikeCommand implements CommandExecutor {
                         if (Config.String("real-lightning").equalsIgnoreCase("false")) {
 
                             player.getWorld().strikeLightningEffect(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + "&r&f You struck yourself!"));
 
+                            if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+
+                                sender.sendMessage(sendermessageself);
+                            }
                         } else if (Config.String("real-lightning").equalsIgnoreCase("true")) {
 
                             player.getWorld().strikeLightning(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + "&r&f You struck yourself!"));
+
+                            if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+                                sender.sendMessage(sendermessageself);
+                            }
 
                         }
 
@@ -58,28 +67,51 @@ public class StrikeCommand implements CommandExecutor {
                         if (Config.String("real-lightning").equalsIgnoreCase("false")) {
 
                             player.getWorld().strikeLightningEffect(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + "&r&f You struck yourself!"));
+
+                            if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+                                sender.sendMessage(sendermessageself);
+                            }
 
                         } else if (Config.String("real-lightning").equalsIgnoreCase("true")) {
 
                             player.getWorld().strikeLightning(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + "&r&f You struck yourself!"));
+
+                            if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+                                sender.sendMessage(sendermessageself);
+                            }
 
                         }
 
                     } else {
 
+                        String senderstrucktarget = Config.String("setCustomMessageToSender").replace("%prefix%", prefix).replace("%target%", target.getName());
+                            senderstrucktarget = CC.translate(senderstrucktarget);
+
+                        String targetgotstruck = Config.String("setCustomMessageToTarget").replace("%prefix%", prefix).replace("%sender%", sender.getName());
+                            targetgotstruck = CC.translate(targetgotstruck);
+
                         if (Config.String("real-lightning").equalsIgnoreCase("false")) {
 
                             player.getWorld().strikeLightningEffect(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + "&r&f You have struck &6&l " + target.getName()));
-                            target.sendMessage(CC.translate(prefix + "&6&l " + sender.getName() + "&r&f has struck you!"));
+
+                        if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+                            sender.sendMessage(senderstrucktarget);
+                        }
+
+                        if (Config.String("doCustomStrikeMessagesTarget").equalsIgnoreCase("true")) {
+                            target.sendMessage(targetgotstruck);
+                        }
 
                         } else if (Config.String("real-lightning").equalsIgnoreCase("true")) {
 
                             player.getWorld().strikeLightning(player.getLocation());
-                            sender.sendMessage(CC.translate(prefix + " You have struck &6&l " + target.getName()));
-                            target.sendMessage(CC.translate(prefix + "&6&l " + sender.getName() + "&r&f has struck you!"));
+
+                            if (Config.String("doCustomStrikeMessagesSender").equalsIgnoreCase("true")) {
+                                sender.sendMessage(senderstrucktarget);
+                            }
+                            if (Config.String("doCustomStrikeMessagesTarget").equalsIgnoreCase("true")) {
+                                target.sendMessage(targetgotstruck);
+                            }
 
 
                         }
@@ -99,22 +131,32 @@ public class StrikeCommand implements CommandExecutor {
 
                 Player target = Bukkit.getPlayerExact(args[0]);
 
+
+
                 if (target == null) {
 
                     System.out.println("[Strike] " + args[0] + " is not currently online!");
 
                 } else {
 
+                    String targetnetworkmessage = Config.String("setCustomMessageToTargetFromConsole").replace("%prefix%", prefix).replace("%target%", target.getName());
+                        targetnetworkmessage = CC.translate(targetnetworkmessage);
+
                     if (Config.String("real-lightning").equalsIgnoreCase("false")) {
 
                         target.getWorld().strikeLightningEffect(target.getLocation());
-                        target.sendMessage(CC.translate(prefix + "&6&l " + "Network" + "&r&f has struck you!"));
+
+                        if (Config.String("doCustomStrikeMessagesTarget").equalsIgnoreCase("true")) {
+                            target.sendMessage(CC.translate(prefix + "&6&l Network" + "&r&f has struck you!"));
+                        }
 
                     } else if (Config.String("real-lightning").equalsIgnoreCase("true")) {
 
                         target.getWorld().strikeLightning(target.getLocation());
-                        target.sendMessage(CC.translate(prefix + "&6&l Network" + "&r&f has struck you!"));
 
+                        if (Config.String("doCustomStrikeMessagesTarget").equalsIgnoreCase("true")) {
+                            target.sendMessage(CC.translate(prefix + "&6&l Network" + "&r&f has struck you!"));
+                        }
                     }
 
                 }

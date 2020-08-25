@@ -2,6 +2,8 @@
 #------Strike Config------#
 ###########################
 
+# - If you have any questions, Add me on Discord @timmy55#9360 - #
+
 ###############
 ##--General--##
 ###############
@@ -11,8 +13,7 @@
 do-CustomDeathMessage: 'true'
 
 
-# - This Determines what the custom message is - #
-# - Defualt = %prefix% &6&l%player% &r&fwas killed by &6&lLightning! - #
+# - This Determines what the custom death message is (for lightning deaths only3)- #
 
 CustomDeathMessage: '%prefix% &6&l%player% &r&fwas killed by &6&lLightning!'
 
@@ -25,24 +26,51 @@ prefix: '&8&l[&6&lStrike&8&l]'
 ##--Strike Command--##
 ######################
 
-# - Sets whether or not the lightning will hurt the player (default = false) - #
-# ----- true = Player will be hurt | false = player will not take damage ----- #
 
-real-lightning: 'false'
+# - Sets whether or not the lightning will hurt the player (default = true) - #
+# ---- true = Player will be hurt | false = player will not take damage ----- #
+
+real-lightning: 'true'
+
+
+# - Determines whether you get messages or send messages when you strike yourself of somoene else - #
+# -- Sender refers to the sender receiving messages | Target refers to target receiving messages -- #
+
+doCustomStrikeMessagesSender: 'true'
+
+doCustomStrikeMessagesTarget: 'true'
+
+
+# - Here you can set the custom message - #
+
+setCustomStruckYourselfMessage: '%prefix% &r&fYou have struck yourself!'
+
+setCustomMessageToSender: '%prefix% &r&fYou have struck&6&l %target%&r&f!'
+
+setCustomMessageToTarget: '%prefix% &r&fYou have been struck by &6&l%sender%&r&f!'
+
+setCustomMessageToTargetFromConsole: '%prefix% &r&fYou have been struck by &6&lNetwork&r&f!'
 
 ######################
 ##--LightningStick--##
 ######################
+
+# - Set custom receive message - #
+
+receiveMessage: '%prefix%&r&f You have received the &6&lLightning Stick!'
+
 
 # - This is the amount of lightning strikes you want  -  #
 # - on interaction with Lightning Stick (Default - 40) - #
 
 Amount-of-Strikes: 40
 
+
 # ----- Sets whether or not the lightning from lightning stick will hurt the player ------ #
 # - true = Player will be hurt | false = player will not take damage | (default = false) - #
 
 real-lightning-stick: 'false'
+
 
 ##################################
 ##--StrikeThereCommand Command--##
@@ -52,6 +80,16 @@ real-lightning-stick: 'false'
 # ----- true = Player will be hurt | false = player will not take damage ----- #
 
 real-strikethere-lightning: 'false'
+
+
+# - Determines if you get a message saying that you struck - #
+
+toggleStrikeThereMessages: 'true'
+
+
+# - Set the message you get when you StrikeThere - #
+
+setStrikeThereMessage: '%prefix% &r&fYou struck where you are looking!'
 
 
 
