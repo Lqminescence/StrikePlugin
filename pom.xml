@@ -6,7 +6,7 @@
 
     <groupId>me.luminescence</groupId>
     <artifactId>Strike</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.3.5</version>
     <packaging>jar</packaging>
 
     <name>Strike</name>

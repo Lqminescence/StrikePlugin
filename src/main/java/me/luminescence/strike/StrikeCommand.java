@@ -14,6 +14,13 @@ public class StrikeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
+        //Main main = JavaPlugin.getPlugin(Main.class);
+
+        //main.getConfig().getString();
+
+        //String string = "&6Hello";
+        //ChatColor.translateAlternateColorCodes('&', string);
+
         String prefix = Config.String("prefix");
 
         if (cmd.getName().equalsIgnoreCase("strike")) {

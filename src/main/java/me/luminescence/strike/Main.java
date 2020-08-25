@@ -10,7 +10,11 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        int pluginId = 8649;
+        Metrics metrics = new Metrics(this, pluginId);
+
         Bukkit.getPluginManager().registerEvents(new LightningStickCheck(), this);
+        Bukkit.getPluginManager().registerEvents(new LightningDeathEffectCheck(), this);
 
         System.out.println("[Strike] Strike has loaded successfully!");
 

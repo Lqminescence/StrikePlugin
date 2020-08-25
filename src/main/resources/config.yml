@@ -6,6 +6,19 @@
 ##--General--##
 ###############
 
+# - This Determines whether or not the Custom Death Messages will appear - #
+
+do-CustomDeathMessage: 'true'
+
+
+# - This Determines what the custom message is - #
+# - Defualt = %prefix% &6&l%player% &r&fwas killed by &6&lLightning! - #
+
+CustomDeathMessage: '%prefix% &6&l%player% &r&fwas killed by &6&lLightning!'
+
+
+# - Prefix that goes before all chat messages - #
+
 prefix: '&8&l[&6&lStrike&8&l]'
 
 ######################

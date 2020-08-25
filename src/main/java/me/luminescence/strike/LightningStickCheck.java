@@ -88,7 +88,9 @@ public class LightningStickCheck implements Listener {
                         }
 
                     }
-                }                 }
+                }
+            }
+
 
             }
 
